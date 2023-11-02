@@ -48,6 +48,12 @@ const displayCart = () => {
         `;
     modalContainer.append(modalBody);    
 });
+    //modal Footer
+    const modalFooter = document.createElement('div');
+    modalFooter.className = 'modal-footer';
+    modalFooter.innerHTML = `
+        <div class="total-price">Total: ${total} </div>`;
+    modalContainer.append(modalFooter);
 };
 
 cartBtn.addEventListener('click', displayCart);
