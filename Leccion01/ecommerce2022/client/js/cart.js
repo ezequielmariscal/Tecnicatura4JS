@@ -28,7 +28,9 @@ const displayCart = () => {
     modalHeader.append(modalTitle);
 
     modalContainer.append(modalHeader);
-
+    
+    //modal Body
+    if (cart.length > 0){
     cart.forEach((product) => {
         const modalBody = document.createElement('div');
         modalBody.className = 'modal-body';
@@ -78,8 +80,17 @@ const displayCart = () => {
     const modalFooter = document.createElement('div');
     modalFooter.className = 'modal-footer';
     modalFooter.innerHTML = `
-        <div class="total-price">Total: ${total} </div>`;
+        <div class="total-price">Total: ${total} </div>
+        
+        `;
     modalContainer.append(modalFooter);
+}else{
+    const modalText = document.createElement('h2')
+    modalText.className = 'modal-body';
+    modalText.innerText = 'No hay productos en el carrito';
+    modalContainer.append(modalText);
+    }
+
 };
 
 cartBtn.addEventListener('click', displayCart);
