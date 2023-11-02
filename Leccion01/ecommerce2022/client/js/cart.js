@@ -46,8 +46,24 @@ const displayCart = () => {
                 <div class="delete-product">❌</div>
         </div>
         `;
-    modalContainer.append(modalBody);    
-});
+    modalContainer.append(modalBody);
+    
+    const decrese = modalBody.querySelector('.quantity-btn-decrese');
+        decrese.addEventListener('click', () => {
+            if (product.quanty != 1) {
+            product.quanty --;
+            displayCart();
+            }
+            
+        }); //fin decrease
+    }); 
+    const increase = modalBody.querySelector('.quantity-btn-increase');
+    increase.addEventListener('click', () => {
+        product.quanty ++;
+        displayCart();
+        
+    });//fin increase
+
     //modal Footer
     const modalFooter = document.createElement('div');
     modalFooter.className = 'modal-footer';
