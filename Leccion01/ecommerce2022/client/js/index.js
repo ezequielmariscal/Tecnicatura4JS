@@ -33,6 +33,7 @@ products.forEach((product) => {
             quanty: product.quanty,
             img: product.img,
             });
+            displayCartCounter();
         }
     });                  
 });

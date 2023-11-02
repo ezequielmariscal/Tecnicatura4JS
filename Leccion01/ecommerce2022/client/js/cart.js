@@ -2,6 +2,7 @@ const modalContainer = document.querySelector('.modal-container');
 const modalOverlay = document.querySelector('.modal-overlay');
 
 const cartBtn = document.getElementById('cart-btn'); // captura el id del buttom
+const cartCounter = document.getElementById('cart-counter');
 
 const displayCart = () => {
     modalContainer.innerHTML = ''; // me sirve para refrescar el html que ya creamos
@@ -54,14 +55,14 @@ const displayCart = () => {
             product.quanty --;
             displayCart();
             }
-            
+            displayCartCounter();
         }); //fin decrease
     }); 
     const increase = modalBody.querySelector('.quantity-btn-increase');
     increase.addEventListener('click', () => {
         product.quanty ++;
         displayCart();
-        
+        displayCartCounter();
     });//fin increase
 
     //delete product
@@ -87,4 +88,15 @@ const deleteCartProduct = (id) => {
     const foundId = cart.findIndex((element) => element.id === id);
     cart.splice(foundId, 1);
     displayCart();
+    displayCartCounter();
+};
+
+const displayCartCounter = () => {
+    const cartLength = cart.reduce((acc, el) => acc + el.quanty, 0);
+    if (cart.length > 0) {
+        cartCounter.style.display = 'block';
+        cartCounter.innerText = cartLength;
+    }else{
+        cartCounter.style.display = 'none';
+    }
 };
