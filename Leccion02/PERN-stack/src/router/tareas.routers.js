@@ -1,15 +1,21 @@
 import { Router } from "express";
+import { listarTareas } from "../controllers/tareas.controller.js";
+import { listarTarea } from "../controllers/tareas.controller.js";
+import { crearTarea } from "../controllers/tareas.controller.js";
+import { actualizarTarea } from "../controllers/tareas.controller.js";
+import { eliminarTarea } from "../controllers/tareas.controller.js";
+
 
 const router = Router();
 
-router.get('/tareas',(req, res) => res.send('Obteniendo tareas'));
+router.get('/tareas', listarTareas);
 
-router.get('/tarea/:id',(req, res) => res.send('Obteniendo tarea unica'));
+router.get('/tarea/:id',listarTarea);
 
-router.post('/tareas',(req, res) => res.send('Creando tarea'));
+router.post('/tareas', crearTarea);
 
-router.put('/tarea/:id',(req, res) => res.send('Actualizando tarea unica'));
+router.put('/tarea/:id', actualizarTarea);
 
-router.delete('/tarea/:id',(req, res) => res.send('Eliminando tarea unica'));
+router.delete('/tarea/:id', eliminarTarea);
 
 export default router;
