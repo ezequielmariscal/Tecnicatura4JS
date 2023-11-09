@@ -1,4 +1,4 @@
-import { Router } from "express";
+import  Router  from "express-promise-router";
 import { listarTareas } from "../controllers/tareas.controller.js";
 import { listarTarea } from "../controllers/tareas.controller.js";
 import { crearTarea } from "../controllers/tareas.controller.js";
